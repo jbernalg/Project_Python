@@ -21,11 +21,26 @@ class LMS:
             content = bk.readlines()  #almacena las lineas del archivo
 
         for line in content:
-            self.books_dict.update({str(Id):{'Book_title':line.replace('\n',''),
+            #actualizamos la informacion de cada libro en su respectivo diccionario
+            self.books_dict.update({str(Id):{'books_title':line.replace('\n',''),
             'lender_name':'', 
             'Issue_data':'',
             'Status':'Available'}})
             Id += 1
 
-print(LMS("List_of_books.txt", "Python's library"))
+    
+    #funcion que muestra la informacion de cada libro
+    def display_books(self):
+        print("-----------List of Books--------------")
+        print('Books ID', "\t", "Title", )
+        print("--------------------------------------")
+
+        #bucle que muestra las llave-valor de los diccionarios
+        for key, value in self.books_dict.items():
+            print(key,"\t\t",value.get('books_title'), "- [",value.get('Status'),"]")
+
+
+l = LMS("List_of_books.txt", "Python's Library")
+print(l.display_books())
+#print(LMS("List_of_books.txt", "Python's library"))
 
