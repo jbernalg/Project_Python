@@ -62,7 +62,32 @@ class LMS:
                 print('Books issued succesfully! \n')
         else:
             print('Book ID not found')
-            return self.Issue_books
+            return self.Issue_books()
+
+            
+    #Funcion agregar un libro
+    def add_books(self):
+
+        new_books = input('Enter books title: ')
+        # si la entrada es vacia
+        if new_books == "":
+            return self.add_books()
+        # Si el titulo es mayor de 25 caracteres
+        elif len(new_books) > 25:
+            print('Books title length is too long! Title length should be 20 chars')
+            return self.add_books()
+        else:
+            # abrir el archivo txt y guardar el nuevo libro
+            with open(self.list_of_books, 'a') as bk:
+                bk.writelines(f"{new_books}\n")
+
+                # actualizar el ID del nuevo libro
+                self.books_dict.update({str(int(max(self.books_dict)) + 1):{'books_title':new_books,
+                'lender_name':'',
+                'Issue_data':'',
+                'Status':'Available'}})
+                print(f"This books '{new_books}' has been added successfull!")
+
 
 
 l = LMS("List_of_books.txt", "Python's Library")
