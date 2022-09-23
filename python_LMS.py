@@ -40,6 +40,16 @@ class LMS:
             print(key,"\t\t",value.get('books_title'), "- [",value.get('Status'),"]")
 
 
+    #funcion que publica los libros
+    def Issue_books(self):
+        books_id = input('Enter books ID: ')
+        #fecha actualizada
+        current_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        #verificamos si el ID existe o no en la BD
+        
+
+
 l = LMS("List_of_books.txt", "Python's Library")
 print(l.display_books())
 #print(LMS("List_of_books.txt", "Python's library"))
