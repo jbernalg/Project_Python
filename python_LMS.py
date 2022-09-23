@@ -40,7 +40,7 @@ class LMS:
             print(key,"\t\t",value.get('books_title'), "- [",value.get('Status'),"]")
 
 
-    #funcion que publica los libros
+    #funcion que presta los libros
     def Issue_books(self):
         books_id = input('Enter books ID: ')
         #fecha actualizada
@@ -88,6 +88,27 @@ class LMS:
                 'Status':'Available'}})
                 print(f"This books '{new_books}' has been added successfull!")
 
+
+    # funcion devolver libro
+    def return_books(self):
+        book_id = input('Enter books ID: ')
+
+        #verificamos si se encuentra en la BD
+        if book_id in self.books_dict.keys():
+            # verificamos el estado del libro
+            if self.books_dict[book_id]['Status'] == 'Available':
+                print('This books is already available in library. Please check  your book ID')
+                return self.return_books()
+            # en caso que no este disponible
+            elif not self.books_dict[book_id]['Status'] == 'Available':
+                #actualizamos la informacion del libro
+                self.books_dict[book_id]['lender_name'] = ''
+                self.books_dict[book_id]['Issue_date'] = ''
+                self.books_dict[book_id]['Status'] = 'Available'
+                print('Successfully update! \n')
+        else:
+            print('Book ID is not found!')
+            return self.return_books()
 
 
 l = LMS("List_of_books.txt", "Python's Library")
