@@ -57,6 +57,13 @@ class LMS:
                 self.books_dict[books_id]['lender_name'] == your_name
                 self.books_dict[books_id]['Issue_date'] == current_date
 
+                #cambiar el estado del libro
+                self.books_dict[books_id]['Status'] == "Already Issued"
+                print('Books issued succesfully! \n')
+        else:
+            print('Book ID not found')
+            return self.Issue_books
+
 
 l = LMS("List_of_books.txt", "Python's Library")
 print(l.display_books())
