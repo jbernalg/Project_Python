@@ -21,7 +21,11 @@ class LMS:
             content = bk.readlines()  #almacena las lineas del archivo
 
         for line in content:
-            print(line)
+            self.books_dict.update({str(Id):{'Book_title':line.replace('\n',''),
+            'lender_name':'', 
+            'Issue_data':'',
+            'Status':'Available'}})
+            Id += 1
 
-print(LMS("list_of_books.txt", "Python's library"))
+print(LMS("List_of_books.txt", "Python's library"))
 
