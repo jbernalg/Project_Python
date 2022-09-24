@@ -51,18 +51,18 @@ class LMS:
             if not self.books_dict[books_id]['Status'] == 'Available':
                 print(f"This books is already issued to {self.books_dict[books_id]['lender_name']} \
                     on {self.books_dict[books_id]['Issue_data']}")
-                return self.Issue_books()
+                return self.issue_books()
             elif self.books_dict[books_id]['Status'] == 'Available':
                 your_name = input('Enter your name: ')
                 self.books_dict[books_id]['lender_name'] == your_name
-                self.books_dict[books_id]['Issue_date'] == current_date
+                self.books_dict[books_id]['Issue_data'] == current_date
 
                 #cambiar el estado del libro
                 self.books_dict[books_id]['Status'] == "Already Issued"
                 print('Books issued succesfully! \n')
         else:
             print('Book ID not found')
-            return self.Issue_books()
+            return self.issue_books()
 
             
     #Funcion agregar un libro
@@ -125,29 +125,26 @@ try:
 
         for key, value in press_key_list.items():
             print('Press', key,'To', value)
-            key_press = input('Press key: ').lower()
+        key_press = input('Press key: ').lower()
 
-            if key_press == 'i':
-                print('\nCurrent Selection: Issue Books\n')
-                myLMS.issue_books()
-            elif key_press == 'a':
-                print('\nCurrent Selection: Add Books\n')
-                myLMS.dd_books()   
-            elif key_press == 'd':
-                print('\nCurrent Selection: Display Books\n')
-                myLMS.display_books()
-            elif key_press == 'r':
-                print('\nCurrent Selection: Return Books\n')
-                myLMS.return_books()
-            elif key_press == 'q':
-                break
-            else:
-                continue
+        if key_press == 'i':
+            print('\nCurrent Selection: Issue Books\n')
+            myLMS.issue_books()
+        elif key_press == 'a':
+            print('\nCurrent Selection: Add Books\n')
+            myLMS.add_books()   
+        elif key_press == 'd':
+            print('\nCurrent Selection: Display Books\n')
+            myLMS.display_books()
+        elif key_press == 'r':
+            print('\nCurrent Selection: Return Books\n')
+            myLMS.return_books()
+        elif key_press == 'q':
+            break
+        else:
+            continue
 except Exception as e:
-    print('Something went wrong. Please check your input !!!')
+    print(e)
+   # print('Something went wrong. Please check your input !!!')
 
-
-l = LMS("List_of_books.txt", "Python's Library")
-print(l.display_books())
-#print(LMS("List_of_books.txt", "Python's library"))
 
