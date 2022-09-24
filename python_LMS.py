@@ -110,6 +110,20 @@ class LMS:
             print('Book ID is not found!')
             return self.return_books()
 
+try:
+    myLMS = LMS('List_of_books.txt', 'Python')
+    # teclas de control
+    press_key_list = {'D' : 'Display Books',
+                      'I' : 'Issue Books',
+                      'A' : 'Add Books',
+                      'R' : 'Return Books',
+                      'Q' : 'Quit'}
+    key_press = False  #bandera
+
+    while not (key_press == 'q'):
+        print(f"\n------------Welcome To {myLMS.library_name} Library Management System----------------- \n")
+        
+
 
 l = LMS("List_of_books.txt", "Python's Library")
 print(l.display_books())
