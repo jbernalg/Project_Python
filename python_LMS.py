@@ -122,7 +122,17 @@ try:
 
     while not (key_press == 'q'):
         print(f"\n------------Welcome To {myLMS.library_name} Library Management System----------------- \n")
-        
+
+        for key, value in press_key_list.items():
+            print('Press', key,'To', value)
+            key_press = input('Press key: ').lower()
+
+            if key_press == 'i':
+                print('\n Current Selection: Issue Books\n')
+                myLMS.Issue_books()
+            elif key_press == 'a':
+                print('\n Current Selection: Add Books\n')
+                myLMS.add_books()   
 
 
 l = LMS("List_of_books.txt", "Python's Library")
