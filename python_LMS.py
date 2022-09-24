@@ -54,11 +54,11 @@ class LMS:
                 return self.issue_books()
             elif self.books_dict[books_id]['Status'] == 'Available':
                 your_name = input('Enter your name: ')
-                self.books_dict[books_id]['lender_name'] == your_name
-                self.books_dict[books_id]['Issue_data'] == current_date
+                self.books_dict[books_id]['lender_name'] = your_name
+                self.books_dict[books_id]['Issue_data'] = current_date
 
                 #cambiar el estado del libro
-                self.books_dict[books_id]['Status'] == "Already Issued"
+                self.books_dict[books_id]['Status'] = 'Already Issued'
                 print('Books issued succesfully! \n')
         else:
             print('Book ID not found')
