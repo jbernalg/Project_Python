@@ -41,7 +41,7 @@ class LMS:
 
 
     #funcion que presta los libros
-    def Issue_books(self):
+    def issue_books(self):
         books_id = input('Enter books ID: ')
         #fecha actualizada
         current_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -128,11 +128,23 @@ try:
             key_press = input('Press key: ').lower()
 
             if key_press == 'i':
-                print('\n Current Selection: Issue Books\n')
-                myLMS.Issue_books()
+                print('\nCurrent Selection: Issue Books\n')
+                myLMS.issue_books()
             elif key_press == 'a':
-                print('\n Current Selection: Add Books\n')
-                myLMS.add_books()   
+                print('\nCurrent Selection: Add Books\n')
+                myLMS.dd_books()   
+            elif key_press == 'd':
+                print('\nCurrent Selection: Display Books\n')
+                myLMS.display_books()
+            elif key_press == 'r':
+                print('\nCurrent Selection: Return Books\n')
+                myLMS.return_books()
+            elif key_press == 'q':
+                break
+            else:
+                continue
+except Exception as e:
+    print('Something went wrong. Please check your input !!!')
 
 
 l = LMS("List_of_books.txt", "Python's Library")
