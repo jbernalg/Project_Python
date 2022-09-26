@@ -1,7 +1,13 @@
-from email.mime import image
-from select import select
 from tkinter import *
 from tkinter import filedialog
+
+#Funciones
+
+def select_path():
+    #permite seleccionar al usuario un directorio desde el explorador
+    path = filedialog.askdirectory() 
+    path_label.config(text=path)
+
 
 screen = Tk()  #pantalla de la app
 title = screen.title('Descarga Videos de Youtube') # titulo de la app
@@ -22,7 +28,7 @@ link_label = Label(screen, text='Ingresa enlace de Descarga: ', font=('Arial', 1
 
 #seleccione ruta donde guarda el video
 path_label = Label(screen, text='Seleccionar Ruta para Descargar', font=('Arial', 15))
-select_btn = Button(screen, text='Seleccionar')
+select_btn = Button(screen, text='Seleccionar', command=select_path)
 
 #añadir widgets a la ventana
 canvas.create_window(250, 190, window=link_label)
