@@ -15,4 +15,12 @@ logo_img = logo_img.subsample(2, 2)
 #agregar la imagen al lienzo
 canvas.create_image(250, 80, image=logo_img)
 
+#campo de enlace
+link_field = Entry(screen, width=50)
+link_label = Label(screen, text='Ingresa enlace de Descarga: ')
+
+#añadir widgets a la ventana
+canvas.create_window(250, 190, window=link_label)
+canvas.create_window(250, 220, window=link_field)
+
 screen.mainloop()
