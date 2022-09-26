@@ -17,10 +17,15 @@ canvas.create_image(250, 80, image=logo_img)
 
 #campo de enlace
 link_field = Entry(screen, width=50)
-link_label = Label(screen, text='Ingresa enlace de Descarga: ')
+link_label = Label(screen, text='Ingresa enlace de Descarga: ', font=('Arial', 15))
+
+
 
 #añadir widgets a la ventana
 canvas.create_window(250, 190, window=link_label)
 canvas.create_window(250, 220, window=link_field)
+
+#boton de descarga
+download_btn = Button(screen, text='Download File')
 
 screen.mainloop()
