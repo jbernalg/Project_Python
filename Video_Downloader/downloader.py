@@ -1,5 +1,9 @@
 from tkinter import *
 from tkinter import filedialog
+from moviepy import *
+from moviepy.editor import VideoFileClip
+from pytube import YouTube
+import shutil
 
 #Funciones
 
@@ -7,6 +11,20 @@ def select_path():
     #permite seleccionar al usuario un directorio desde el explorador
     path = filedialog.askdirectory() 
     path_label.config(text=path)
+
+def download_file():
+    #get user path
+    get_link = link_field.get()
+    #get selected path
+    user_path = path_label.cget("text")
+    screen.title('Downloading...')
+    #Download Video
+    mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+    vid_clip = VideoFileClip(mp4_video)
+    vid_clip.close()
+    #move file to selected directory
+    shutil.move(mp4_video, user_path)
+    screen.title('Download Complete! Download Another File...')
 
 
 screen = Tk()  #pantalla de la app
@@ -37,7 +55,7 @@ canvas.create_window(250, 280,window=path_label)
 canvas.create_window(250, 330,window=select_btn)
 
 #boton de descarga
-download_btn = Button(screen, text='Download File')
+download_btn = Button(screen, text='Download File', command=download_file)
 
 #añadir boton a la ventana
 canvas.create_window(250, 390,window=download_btn)
