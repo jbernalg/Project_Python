@@ -20,11 +20,13 @@ def download_file():
     screen.title('Descargando... Espere un Momento')
     #Download Video
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+
     vid_clip = VideoFileClip(mp4_video)
     vid_clip.close()
     #move file to selected directory
     shutil.move(mp4_video, user_path)
     screen.title('Descarga Completada! Descargue otro Archivo...')
+    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
 def download_audio():
     #get user path
@@ -36,7 +38,7 @@ def download_audio():
     mp3_audio = YouTube(get_link).streams.get_audio_only().download()
     shutil.move(mp3_audio, user_path)
     screen.title('Descarga Completada! Descargue otro Archivo...')
-    link_label = Label(screen, text='Ingresa enlace de Descarga: ', font=('Arial', 15))
+    
 
 
 
@@ -49,7 +51,6 @@ canvas.pack()
 logo_img = PhotoImage(file='logo_youtube.png')
 #redimensionar image
 logo_img = logo_img.subsample(2, 2)
-
 #agregar la imagen al lienzo
 canvas.create_image(250, 80, image=logo_img)
 
