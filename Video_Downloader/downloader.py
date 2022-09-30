@@ -17,14 +17,27 @@ def download_file():
     get_link = link_field.get()
     #get selected path
     user_path = path_label.cget("text")
-    screen.title('Downloading...')
+    screen.title('Descargando... Espere un Momento')
     #Download Video
     mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
     vid_clip = VideoFileClip(mp4_video)
     vid_clip.close()
     #move file to selected directory
     shutil.move(mp4_video, user_path)
-    screen.title('Download Complete! Download Another File...')
+    screen.title('Descarga Completada! Descargue otro Archivo...')
+
+def download_audio():
+    #get user path
+    get_link = link_field.get()
+    #get selected path
+    user_path = path_label.cget("text")
+    screen.title('Descargando... Espere un Momento')
+    #Download Audio
+    mp3_audio = YouTube(get_link).streams.get_audio_only().download()
+    shutil.move(mp3_audio, user_path)
+    screen.title('Descarga Completada! Descargue otro Archivo...')
+    link_label = Label(screen, text='Ingresa enlace de Descarga: ', font=('Arial', 15))
+
 
 
 screen = Tk()  #pantalla de la app
@@ -54,10 +67,14 @@ canvas.create_window(250, 220, window=link_field)
 canvas.create_window(250, 280,window=path_label)
 canvas.create_window(250, 330,window=select_btn)
 
-#boton de descarga
-download_btn = Button(screen, text='Download File', command=download_file)
+#boton de descarga de video
+download_btn = Button(screen, text='Descargar Video', command=download_file)
+#boton de descarga a la ventana
+canvas.create_window(190, 390, window=download_btn)
 
-#añadir boton a la ventana
-canvas.create_window(250, 390,window=download_btn)
+#boton de descarga de audio
+download_mp3 = Button(screen, text='Descargar Audio', command=download_audio)
+#boton de descarga de audio a la ventana
+canvas.create_window(310, 390, window=download_mp3)
 
 screen.mainloop()
