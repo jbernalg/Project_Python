@@ -38,7 +38,7 @@ def download_audio():
     mp3_audio = YouTube(get_link).streams.get_audio_only().download()
     shutil.move(mp3_audio, user_path)
     screen.title('Descarga Completada! Descargue otro Archivo...')
-    
+    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
 
 
