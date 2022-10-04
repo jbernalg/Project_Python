@@ -26,7 +26,6 @@ def download_file():
     get_link = link_field.get()
     
     if get_link == "":
-        print('Ingrese el Link de la Multimedia!')
         tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
     else:
         #get selected path
@@ -49,7 +48,6 @@ def download_audio():
     get_link = link_field.get()
 
     if get_link == "":
-        print('Ingrese el Link de la Multimedia!')
         tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
     else:
         #get selected path
