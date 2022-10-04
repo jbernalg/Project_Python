@@ -39,7 +39,7 @@ def download_file():
         if list_resol.get() == 'Alta':
             mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
         elif list_resol.get() == 'Media':
-            mp4_video = YouTube(get_link).streams.get_by_resolution("240").download()
+            mp4_video = YouTube(get_link).streams.get_by_resolution(resolution='240p').download()
         else:
             mp4_video = YouTube(get_link).streams.get_lowest_resolution().download()
         vid_clip = VideoFileClip(mp4_video)
