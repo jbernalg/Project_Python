@@ -1,44 +1,57 @@
 from tkinter import *
 from tkinter import filedialog
+import tkinter
 from moviepy import *
 from moviepy.editor import VideoFileClip
 from pytube import YouTube
 import shutil
+import tkinter.messagebox
 
 #Funciones
 
 def select_path():
     #permite seleccionar al usuario un directorio desde el explorador
+    path_field.delete(0, 100)
     path = filedialog.askdirectory() 
     path_field.insert(0,path)
 
 def download_file():
     #get user path
     get_link = link_field.get()
-    #get selected path
-    user_path = path_label.cget("text")
-    screen.title('Descargando... Espere un Momento')
-    #Download Video
-    mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+    
+    if get_link == "":
+        print('Ingrese el Link de la Multimedia!')
+        tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
+    else:
+        #get selected path
+        user_path = path_label.cget("text")
+        screen.title('Descargando... Espere un Momento')
+        #Download Video
+        mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
 
-    vid_clip = VideoFileClip(mp4_video)
-    vid_clip.close()
-    #move file to selected directory
-    shutil.move(mp4_video, user_path)
-    screen.title('Descarga Completada! Descargue otro Archivo...')
-    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+        vid_clip = VideoFileClip(mp4_video)
+        vid_clip.close()
+        #move file to selected directory
+        shutil.move(mp4_video, user_path)
+        screen.title('Descarga Completada! Descargue otro Archivo...')
+        link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
 def download_audio():
     #get user path
     get_link = link_field.get()
-    #get selected path
-    user_path = path_label.cget("text")
-    screen.title('Descargando... Espere un Momento')
-    #Download Audio
-    mp3_audio = YouTube(get_link).streams.get_audio_only().download()
-    shutil.move(mp3_audio, user_path)
-    screen.title('Descarga Completada! Descargue otro Archivo...')
-    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+
+    if get_link == "":
+        print('Ingrese el Link de la Multimedia!')
+        tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
+    else:
+        #get selected path
+        user_path = path_label.cget("text")
+        screen.title('Descargando... Espere un Momento')
+        #Download Audio
+        mp3_audio = YouTube(get_link).streams.get_audio_only().download()
+        shutil.move(mp3_audio, user_path)
+        screen.title('Descarga Completada! Descargue otro Archivo...')
+        link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
 
 
