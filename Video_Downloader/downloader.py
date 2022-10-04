@@ -10,7 +10,7 @@ import shutil
 def select_path():
     #permite seleccionar al usuario un directorio desde el explorador
     path = filedialog.askdirectory() 
-    path_label.config(text=path)
+    path_field.insert(0,path)
 
 def download_file():
     #get user path
