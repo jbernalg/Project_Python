@@ -61,16 +61,14 @@ link_label = Label(screen, text='Ingresa enlace de Descarga: ', font=('Arial', 1
 #seleccione ruta donde guarda el video
 path_label = Label(screen, text='Seleccionar Ruta para Descargar', font=('Arial', 15))
 select_btn = Button(screen, text='Seleccionar', command=select_path)
-
-#campo de ruta
-path_field = Entry(screen, width=40)
+path_field = Entry(screen, width=40)  #campo de ruta
 
 #añadir widgets a la ventana
 canvas.create_window(250, 190, window=link_label)  # Etiqueta de enlace
-canvas.create_window(250, 220, window=link_field)  # 
-canvas.create_window(250, 280,window=path_label)
-canvas.create_window(220, 310, window=path_field)
-canvas.create_window(390, 310,window=select_btn)
+canvas.create_window(250, 220, window=link_field)  # Campo de enlace
+canvas.create_window(250, 280,window=path_label)   # Etiqueta de la ruta
+canvas.create_window(220, 310, window=path_field)  # Campo de la ruta
+canvas.create_window(390, 310,window=select_btn)   # Boton Seleccionar Ruta
 
 #boton de descarga de video
 download_btn = Button(screen, text='Descargar Video', command=download_file)
