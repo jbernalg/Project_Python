@@ -36,7 +36,12 @@ def download_file():
         screen.title('Descargando... Espere un Momento')
         
         #Download Video
-        mp4_video = YouTube(get_link).streams.get_highest_resolution().download()
+        if list_resol.get() == 'Alta':
+            mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
+        elif list_resol.get() == 'Media':
+            mp4_video = YouTube(get_link).streams.get_by_resolution("240").download()
+        else:
+            mp4_video = YouTube(get_link).streams.get_lowest_resolution().download()
         vid_clip = VideoFileClip(mp4_video)
         vid_clip.close()
 
