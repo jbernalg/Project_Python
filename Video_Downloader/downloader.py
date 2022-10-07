@@ -91,23 +91,23 @@ logo_img = logo_img.subsample(2, 2)
 canvas.create_image(250, 80, image=logo_img)
 
 # Busqueda en youTube
-search_label = Label(screen, text='Buscar Multimedia en YouTube', font=('Arial', 15))
+search_label = Label(screen, text='Buscar Multimedia en YouTube', font=('Arial Rounded MT Bold', 14))
 search_btn = Button(screen, text='Buscar', command=search_multi)
 
 # Enlace
 link_field = Entry(screen, width=40)
-link_label = Label(screen, text='Ingresa enlace de Descarga', font=('Arial', 14))
+link_label = Label(screen, text='Ingresa enlace de Descarga', font=('Arial Rounded MT Bold', 14))
 
 # Ruta donde guarda el video
-path_label = Label(screen, text='Seleccionar Ruta para Descargar', font=('Arial', 14))
+path_label = Label(screen, text='Seleccionar Ruta para Descargar', font=('Arial Rounded MT Bold', 14))
 select_btn = Button(screen, text='Seleccionar', command=select_path)
 path_field = Entry(screen, width=40)  #campo de ruta
 
 # boton de descarga de video
-download_btn = Button(screen, text='Descargar Video', command=lambda: verify_link('video'))
+download_btn = Button(screen, text='Descargar Video', command=lambda: verify_link('video'), font=('Arial Black',11), foreground= 'red')
 
 # boton de descarga de audio
-download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'))
+download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'), font=('Arial Black',11))
 
 # Lista Resolucion video
 list_resol = Combobox(state='readonly' ,values=['Alta', 'Baja'], width=6)
@@ -115,14 +115,14 @@ list_resol.set('Alta')
 resol_label = Label(screen, text='Resolución', font=('Arial', 10))
 
 #añadir widgets a la ventana
-canvas.create_window(250, 150, window=search_label)# Etiqueta de busqueda
-canvas.create_window(250, 180, window=search_btn)  # Boton de busqueda
+canvas.create_window(230, 170, window=search_label)# Etiqueta de busqueda
+canvas.create_window(400, 170, window=search_btn)  # Boton de busqueda
 canvas.create_window(220, 240, window=link_label)  # Etiqueta de enlace
-canvas.create_window(220, 270, window=link_field)  # Campo de enlace
+canvas.create_window(215, 270, window=link_field)  # Campo de enlace
 canvas.create_window(390, 270, window=list_resol)  # Lista resolucion
 canvas.create_window(390, 250, window=resol_label) # Etiqueta resolucion
-canvas.create_window(220, 330,window=path_label)   # Etiqueta de la ruta
-canvas.create_window(220, 360, window=path_field)  # Campo de la ruta
+canvas.create_window(242, 330,window=path_label)   # Etiqueta de la ruta
+canvas.create_window(215, 360, window=path_field)  # Campo de la ruta
 canvas.create_window(390, 360,window=select_btn)   # Boton Seleccionar Ruta
 canvas.create_window(190, 420, window=download_btn)# Boton dascarga Video
 canvas.create_window(310, 420, window=download_mp3)# Boton descarga Auido
