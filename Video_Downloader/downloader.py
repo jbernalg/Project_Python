@@ -10,11 +10,12 @@ import shutil
 import tkinter.messagebox
 import webbrowser
 
-#Funciones
+# Funciones
+
+# Verifica si el link es valido
 def verify_link(string):
     try:
-        get_link = link_field.get()
-        YouTube(get_link).check_availability()
+        YouTube(link_field.get()).check_availability()
         if string == 'video':
             download_file()
         else:
@@ -24,10 +25,12 @@ def verify_link(string):
         link_field.delete(first=0, last=100)
         
 
+# Redirecciona a la pagina Principal de Youtube
 def search_multi():
     webbrowser.open('https://www.youtube.com')
 
 
+# Selecciona la ruta local donde guarda el archivo
 def select_path():
     #permite seleccionar al usuario un directorio desde el explorador
     path = filedialog.askdirectory() 
@@ -35,6 +38,7 @@ def select_path():
     path_field.insert(0,path)
 
 
+# descarga video
 def download_file():
     #get user path
     get_link = link_field.get()
@@ -55,30 +59,24 @@ def download_file():
     shutil.move(mp4_video, user_path)
     screen.title('Descarga Completada! Descargue otro Archivo...')
     link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
-        
-        # except Exception:
-        #     screen.title('Descarga Videos de YouTube')
-        #     tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link válido')
-        #     link_field.delete(first=0, last=100) 
 
 
+# Descarga audio
 def download_audio():
     #get user path
     get_link = link_field.get()
 
-    if get_link == "":
-        tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
-    else:
-        #get selected path
-        user_path = path_field.get()
-        screen.title('Descargando... Espere un Momento')
-        #Download Audio
-        mp3_audio = YouTube(get_link).streams.get_audio_only().download()
-        shutil.move(mp3_audio, user_path)
-        screen.title('Descarga Completada! Descargue otro Archivo...')
-        link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+    #get selected path
+    user_path = path_field.get()
+    screen.title('Descargando... Espere un Momento')
+    
+    #Download Audio
+    mp3_audio = YouTube(get_link).streams.get_audio_only().download()
+    shutil.move(mp3_audio, user_path)
+    screen.title('Descarga Completada! Descargue otro Archivo...')
+    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
-
+#-------------------------Main---------------------------------------------------
 
 screen = Tk()  #pantalla de la app
 title = screen.title('Descarga Videos de Youtube') # titulo de la app
@@ -112,7 +110,7 @@ download_btn = Button(screen, text='Descargar Video', command=lambda: verify_lin
 download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'))
 
 # Lista Resolucion video
-list_resol = Combobox(state='readonly' ,values=['Alta', 'Media', 'Baja'], width=6)
+list_resol = Combobox(state='readonly' ,values=['Alta', 'Baja'], width=6)
 list_resol.set('Alta')
 resol_label = Label(screen, text='Resolución', font=('Arial', 10))
 
