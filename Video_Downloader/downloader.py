@@ -38,10 +38,10 @@ def download_file():
         #Download Video
         if list_resol.get() == 'Alta':
             mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
-        elif list_resol.get() == 'Media':
-            mp4_video = YouTube(get_link).streams.get_by_resolution(resolution='240p').download()
         else:
             mp4_video = YouTube(get_link).streams.get_lowest_resolution().download()
+
+            
         vid_clip = VideoFileClip(mp4_video)
         vid_clip.close()
 
@@ -113,7 +113,7 @@ canvas.create_window(220, 240, window=link_label)  # Etiqueta de enlace
 canvas.create_window(220, 270, window=link_field)  # Campo de enlace
 canvas.create_window(390, 270, window=list_resol)  # Lista resolucion
 canvas.create_window(390, 250, window=resol_label) # Etiqueta resolucion
-canvas.create_window(250, 330,window=path_label)   # Etiqueta de la ruta
+canvas.create_window(220, 330,window=path_label)   # Etiqueta de la ruta
 canvas.create_window(220, 360, window=path_field)  # Campo de la ruta
 canvas.create_window(390, 360,window=select_btn)   # Boton Seleccionar Ruta
 canvas.create_window(190, 420, window=download_btn)# Boton dascarga Video
