@@ -11,6 +11,17 @@ import tkinter.messagebox
 import webbrowser
 
 #Funciones
+def verify_link(string):
+    try:
+        get_link = link_field.get()
+        YouTube(get_link).check_availability()
+        if string == 'video':
+            download_file()
+        else:
+            download_audio()
+    except Exception:
+        tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link Válido')
+        
 
 def search_multi():
     webbrowser.open('https://www.youtube.com')
@@ -35,25 +46,24 @@ def download_file():
         print(user_path)
         screen.title('Descargando... Espere un Momento')
         
-        try:
-            #Download Video
-            if list_resol.get() == 'Alta':
-                mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
-            else:
-                mp4_video = YouTube(get_link).streams.get_lowest_resolution().download() 
+        #Download Video
+        if list_resol.get() == 'Alta':
+            mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
+        else:
+            mp4_video = YouTube(get_link).streams.get_lowest_resolution().download() 
             
-            vid_clip = VideoFileClip(mp4_video)
-            vid_clip.close()
+        vid_clip = VideoFileClip(mp4_video)
+        vid_clip.close()
 
-            #move file to selected directory
-            shutil.move(mp4_video, user_path)
-            screen.title('Descarga Completada! Descargue otro Archivo...')
-            link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+        #move file to selected directory
+        shutil.move(mp4_video, user_path)
+        screen.title('Descarga Completada! Descargue otro Archivo...')
+        link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
         
-        except Exception:
-            screen.title('Descarga Videos de YouTube')
-            tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link válido')
-            link_field.delete(first=0, last=100) 
+        # except Exception:
+        #     screen.title('Descarga Videos de YouTube')
+        #     tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link válido')
+        #     link_field.delete(first=0, last=100) 
 
 
 def download_audio():
@@ -79,7 +89,6 @@ title = screen.title('Descarga Videos de Youtube') # titulo de la app
 canvas = Canvas(screen, width=500, height=500)  # medidas del lienzo de la app
 canvas.pack()
 
-
 #logo
 logo_img = PhotoImage(file='logo_youtube.png')
 #redimensionar image
@@ -101,10 +110,10 @@ select_btn = Button(screen, text='Seleccionar', command=select_path)
 path_field = Entry(screen, width=40)  #campo de ruta
 
 # boton de descarga de video
-download_btn = Button(screen, text='Descargar Video', command=download_file)
+download_btn = Button(screen, text='Descargar Video', command=lambda: verify_link('video'))
 
 # boton de descarga de audio
-download_mp3 = Button(screen, text='Descargar Audio', command=download_audio)
+download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'))
 
 # Lista Resolucion video
 list_resol = Combobox(state='readonly' ,values=['Alta', 'Media', 'Baja'], width=6)
