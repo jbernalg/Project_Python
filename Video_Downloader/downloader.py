@@ -111,7 +111,11 @@ download_btn = Button(screen,
                 foreground= 'red')
 
 # boton de descarga de audio
-download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'), font=('Arial Black',11), foreground= 'blue')
+download_mp3 = Button(screen, 
+                text='Descargar Audio', 
+                command=lambda: verify_link('audio'), 
+                font=('Arial Black',11), 
+                foreground= 'blue')
 
 # Lista Resolucion video
 list_resol = Combobox(state='readonly' ,values=['Alta', 'Baja'], width=6)
