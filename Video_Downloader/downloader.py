@@ -104,10 +104,14 @@ select_btn = Button(screen, text='Seleccionar', command=select_path)
 path_field = Entry(screen, width=40)  #campo de ruta
 
 # boton de descarga de video
-download_btn = Button(screen, text='Descargar Video', command=lambda: verify_link('video'), font=('Arial Black',11), foreground= 'red')
+download_btn = Button(screen,
+                text='Descargar Video',
+                command=lambda: verify_link('video'), 
+                font=('Arial Black',11), 
+                foreground= 'red')
 
 # boton de descarga de audio
-download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'), font=('Arial Black',11))
+download_mp3 = Button(screen, text='Descargar Audio', command=lambda: verify_link('audio'), font=('Arial Black',11), foreground= 'blue')
 
 # Lista Resolucion video
 list_resol = Combobox(state='readonly' ,values=['Alta', 'Baja'], width=6)
@@ -124,8 +128,8 @@ canvas.create_window(390, 250, window=resol_label) # Etiqueta resolucion
 canvas.create_window(242, 330,window=path_label)   # Etiqueta de la ruta
 canvas.create_window(215, 360, window=path_field)  # Campo de la ruta
 canvas.create_window(390, 360,window=select_btn)   # Boton Seleccionar Ruta
-canvas.create_window(190, 420, window=download_btn)# Boton dascarga Video
-canvas.create_window(310, 420, window=download_mp3)# Boton descarga Auido
+canvas.create_window(160, 420, window=download_btn)# Boton dascarga Video
+canvas.create_window(340, 420, window=download_mp3)# Boton descarga Auido
 
 
 
