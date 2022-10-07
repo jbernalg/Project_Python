@@ -21,6 +21,7 @@ def verify_link(string):
             download_audio()
     except Exception:
         tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link Válido')
+        link_field.delete(first=0, last=100)
         
 
 def search_multi():
@@ -38,27 +39,22 @@ def download_file():
     #get user path
     get_link = link_field.get()
     
-    if get_link == "":
-        tkinter.messagebox.showinfo('ATENCIÓN', 'Ingrese el Link de la Multimedia..!')
-    else:
-        #get selected path
-        user_path =  path_field.get()
-        print(user_path)
-        screen.title('Descargando... Espere un Momento')
+    #get selected path
+    user_path =  path_field.get()
+    screen.title('Descargando... Espere un Momento')
         
-        #Download Video
-        if list_resol.get() == 'Alta':
-            mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
-        else:
-            mp4_video = YouTube(get_link).streams.get_lowest_resolution().download() 
-            
-        vid_clip = VideoFileClip(mp4_video)
-        vid_clip.close()
-
-        #move file to selected directory
-        shutil.move(mp4_video, user_path)
-        screen.title('Descarga Completada! Descargue otro Archivo...')
-        link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+    #Download Video
+    if list_resol.get() == 'Alta':
+        mp4_video = YouTube(get_link).streams.get_highest_resolution().download()    
+    else:
+        mp4_video = YouTube(get_link).streams.get_lowest_resolution().download() 
+        
+    vid_clip = VideoFileClip(mp4_video)
+    vid_clip.close()
+    #move file to selected directory
+    shutil.move(mp4_video, user_path)
+    screen.title('Descarga Completada! Descargue otro Archivo...')
+    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
         
         # except Exception:
         #     screen.title('Descarga Videos de YouTube')
