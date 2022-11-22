@@ -140,7 +140,8 @@ canvas = Canvas(screen, width=500, height=500)  # medidas del lienzo de la app
 canvas.pack()
 
 #logo
-logo_img = PhotoImage(file='logo_youtube.png')
+path = resource_path('logo_youtube.png')
+logo_img = PhotoImage(file=path)
 #redimensionar image
 logo_img = logo_img.subsample(2, 2)
 #agregar la imagen al lienzo
