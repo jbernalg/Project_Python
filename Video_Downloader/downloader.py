@@ -1,3 +1,4 @@
+import glob
 from msilib.schema import ComboBox
 from tkinter import *
 from tkinter import filedialog
@@ -5,10 +6,12 @@ import tkinter
 from tkinter.ttk import Combobox
 from moviepy import *
 from moviepy.editor import VideoFileClip
+from moviepy.editor import AudioFileClip
 from pytube import YouTube
 import shutil
 import tkinter.messagebox
 import webbrowser
+import os
 
 # Funciones
 
@@ -71,8 +74,11 @@ def download_audio():
     screen.title('Descargando... Espere un Momento')
     
     #Download Audio
-    mp3_audio = YouTube(get_link).streams.get_audio_only().download()
-    shutil.move(mp3_audio, user_path)
+    mp4_audio = YouTube(get_link).streams.get_audio_only().download(user_path)
+    mp3_audio = AudioFileClip(mp4_audio)
+    mp3_audio.write_audiofile(mp3_audio.filename.replace('.mp4', '.mp3'))
+
+    #shutil.move()
     screen.title('Descarga Completada! Descargue otro Archivo...')
     link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
