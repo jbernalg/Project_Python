@@ -120,6 +120,18 @@ def download_audio():
     screen.title('Descarga Completada! Descargue otro Archivo...')
     link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
 
+
+# Rutas relativas para los archivos de imagen
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 #-------------------------Main---------------------------------------------------
 
 screen = Tk()  #pantalla de la app
