@@ -75,6 +75,9 @@ weight = StringVar()
 height_value = IntVar()
 weight_value = IntVar()
 
+# variable que almacena el valor dinamico de IMC
+txt = StringVar()
+
 #---------- funciones para obtener los valores -----------
 def get_height_value():
     return height_value.get()
@@ -131,6 +134,48 @@ weight_slider = customtkinter.CTkSlider(app,
                                         button_hover_color='#bf0d97',
                                         command=slider2)
 weight_slider.place(x=30, y=310)
+
+#------ Funcion de indice de masa ---------
+def IMC():
+    cm = int(height_entry.get())
+    m = (cm/100)*(cm/100)
+    w = int(weight_entry.get())
+    imc =float(format(w/m, '.2f'))
+
+    if imc <= 18.5:
+        txt.set('Por debajo del peso normal')
+    elif imc <= 24.5:
+        txt.set('Normal')
+    elif imc <= 29.9:
+        txt.set('Sobrepeso')
+    elif imc <= 34.9:
+        txt.set('Obesidad Tipo I')
+    elif imc <= 39.9:
+        txt.set('Obesidad Tipo II')
+    else:
+        txt.set('Obesidad Tipo III')
+
+
+    result1_label = customtkinter.CTkLabel(app,
+                                           text=f'IMC: {imc}',
+                                           font=('Arial',18,'bold'))
+    result1_label.place(x=75, y=410)
+
+    result2_label = customtkinter.CTkLabel(app,
+                                           textvariable=txt,
+                                           font=('Arial',18,'bold'))
+    result2_label.place(x=73, y=440)
+
+calc_button = customtkinter.CTkButton(app, 
+                                      text='Calcular', 
+                                      command=IMC,
+                                      width=170,
+                                      height=50,
+                                      font=('Arial',20,'bold'),
+                                      fg_color='#FF00FF',
+                                      hover_color='#FF00FF')
+calc_button.place(x=63, y=350)
+
 
 
 # bucle para correr la app
