@@ -34,9 +34,9 @@ height_label = Label(app,
                     font=('Roboto', 18, 'bold'), 
                     fg='#FFFFFF', 
                     bg='#181935' , 
-                    width=17, 
-                    height=4)
-height_label.place(x=20, y=60)
+                    width=16, 
+                    height=3)
+height_label.place(x=30, y=60)
 
 # Etiqueta texto altura
 height_text_label = Label(app, 
@@ -46,16 +46,16 @@ height_text_label = Label(app,
                           bg='#181935' , 
                           width=10, 
                           height=1)
-height_text_label.place(x=75, y=60)
+height_text_label.place(x=70, y=60)
 
 # Etiqueta Peso
 weight_label = Label(app, 
                     font=('Roboto', 18, 'bold'), 
                     fg='#FFFFFF', 
                     bg='#181935' , 
-                    width=17, 
-                    height=4)
-weight_label.place(x=20, y=210)
+                    width=16, 
+                    height=3)
+weight_label.place(x=30, y=210)
 
 # Etiqueta texto Peso
 weight_text_label = Label(app, 
@@ -65,17 +65,55 @@ weight_text_label = Label(app,
                           bg='#181935' , 
                           width=10, 
                           height=1)
-weight_text_label.place(x=75, y=220)
+weight_text_label.place(x=72, y=217)
 
 # variables de entrada
-height = StringVar
+height = StringVar()
+weight = StringVar()
 
 # entrada de la altura
 height_entry = customtkinter.CTkEntry(app, 
                                       textvariable=height,
-                                      bg_color='#')
+                                      bg_color='#181935',
+                                      fg_color='#181833',
+                                      border_width=1,
+                                      font=('Arial',23, 'bold'))
+height_entry.place(x=72, y=100)
 
+# entrada del peso
+weight_entry = customtkinter.CTkEntry(app, 
+                                      textvariable=weight,
+                                      bg_color='#181935',
+                                      fg_color='#181833',
+                                      border_width=1,
+                                      font=('Arial',23, 'bold'))
+weight_entry.place(x=72, y=258)
 
+# valores de las variables de entrada
+height_value = IntVar()
+weight_value = IntVar()
+
+# control deslizante altura
+height_slider = customtkinter.CTkSlider(app,
+                                        variable=height_value,
+                                        from_=0,
+                                        to=300,
+                                        width=230,
+                                        bg_color='#181935',
+                                        fg_color='#FFFFFF',
+                                        button_hover_color='#bf0d97')
+height_slider.place(x=30, y=160)
+
+# control deslizante peso
+weight_slider = customtkinter.CTkSlider(app,
+                                        variable=weight_value,
+                                        from_=0,
+                                        to=300,
+                                        width=230,
+                                        bg_color='#181935',
+                                        fg_color='#FFFFFF',
+                                        button_hover_color='#bf0d97')
+weight_slider.place(x=30, y=310)
 
 
 # bucle para correr la app
