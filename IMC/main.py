@@ -1,12 +1,13 @@
 import customtkinter
 from tkinter import *
 from utils import resource_path
+from tkinter import messagebox
 
 # crear app
 app = customtkinter.CTk()
 
 # dimensiones de la app
-app.geometry('300x500')
+app.geometry('300x480')
 
 # titulo de la app
 app.title('CALCULADORA IMC')
@@ -137,24 +138,26 @@ weight_slider.place(x=30, y=310)
 
 #------ Funcion de indice de masa ---------
 def IMC():
-    cm = int(height_entry.get())
-    m = (cm/100)*(cm/100)
-    w = int(weight_entry.get())
-    imc =float(format(w/m, '.2f'))
+    try:
+        cm = int(height_entry.get())
+        m = (cm/100)*(cm/100)
+        w = int(weight_entry.get())
+        imc =float(format(w/m, '.2f'))
 
-    if imc <= 18.5:
-        txt.set('Por debajo del peso normal')
-    elif imc <= 24.5:
-        txt.set('Normal')
-    elif imc <= 29.9:
-        txt.set('Sobrepeso')
-    elif imc <= 34.9:
-        txt.set('Obesidad Tipo I')
-    elif imc <= 39.9:
-        txt.set('Obesidad Tipo II')
-    else:
-        txt.set('Obesidad Tipo III')
-
+        if imc <= 18.5:
+            txt.set('Por debajo del peso normal')
+        elif imc <= 24.5:
+            txt.set('Normal')
+        elif imc <= 29.9:
+            txt.set('Sobrepeso')
+        elif imc <= 34.9:
+            txt.set('Obesidad Tipo I')
+        elif imc <= 39.9:
+            txt.set('Obesidad Tipo II')
+        else:
+            txt.set('Obesidad Tipo III')
+    except:
+        messagebox.showerror(title='Error', message='La altura o peso no pueden ser igual a 0')
 
     result1_label = customtkinter.CTkLabel(app,
                                            text=f'IMC: {imc}',
@@ -165,6 +168,7 @@ def IMC():
                                            textvariable=txt,
                                            font=('Arial',18,'bold'))
     result2_label.place(x=73, y=440)
+
 
 calc_button = customtkinter.CTkButton(app, 
                                       text='Calcular', 
