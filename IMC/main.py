@@ -71,6 +71,23 @@ weight_text_label.place(x=72, y=217)
 height = StringVar()
 weight = StringVar()
 
+# valores de las variables de entrada
+height_value = IntVar()
+weight_value = IntVar()
+
+#---------- funciones para obtener los valores -----------
+def get_height_value():
+    return height_value.get()
+
+def slider1(event):
+    return height.set(get_height_value())
+
+def get_weight_value():
+    return weight_value.get()
+
+def slider2(event):
+    return weight.set(get_weight_value())
+
 # entrada de la altura
 height_entry = customtkinter.CTkEntry(app, 
                                       textvariable=height,
@@ -89,9 +106,7 @@ weight_entry = customtkinter.CTkEntry(app,
                                       font=('Arial',23, 'bold'))
 weight_entry.place(x=72, y=258)
 
-# valores de las variables de entrada
-height_value = IntVar()
-weight_value = IntVar()
+
 
 # control deslizante altura
 height_slider = customtkinter.CTkSlider(app,
@@ -101,18 +116,20 @@ height_slider = customtkinter.CTkSlider(app,
                                         width=230,
                                         bg_color='#181935',
                                         fg_color='#FFFFFF',
-                                        button_hover_color='#bf0d97')
+                                        button_hover_color='#bf0d97',
+                                        command=slider1)
 height_slider.place(x=30, y=160)
 
 # control deslizante peso
 weight_slider = customtkinter.CTkSlider(app,
                                         variable=weight_value,
                                         from_=0,
-                                        to=300,
+                                        to=500,
                                         width=230,
                                         bg_color='#181935',
                                         fg_color='#FFFFFF',
-                                        button_hover_color='#bf0d97')
+                                        button_hover_color='#bf0d97',
+                                        command=slider2)
 weight_slider.place(x=30, y=310)
 
 
