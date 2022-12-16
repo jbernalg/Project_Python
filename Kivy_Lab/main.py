@@ -6,9 +6,14 @@ from kivy.uix.button import Button
 
 # diseño de caja para la app
 class BoxLayoutExample(BoxLayout):
+    pass
+    """ 
     # constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        # cambiar orientacion de los botones
+        self.orientation = 'vertical'
 
         #botones
         b1 = Button(text='new button')
@@ -20,6 +25,7 @@ class BoxLayoutExample(BoxLayout):
         self.add_widget(b3)
         self.add_widget(b2)
         self.add_widget(b1)
+    """
 
 # interfaz principal de la app
 class MainWidget(Widget):
