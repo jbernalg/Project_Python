@@ -4,11 +4,18 @@ BoxLayoutExample:
     orientation: 'vertical'
     Button:
         text: 'Button kv'
+        # size: '40dp', '40dp'
+        size_hint: 1, .5 # fijar tamaño al boton en % respecto a los demas widgets. Responsive
     Button:
         text: 'Button kv2'
-    Label:
+        size_hint: 1, 2
+    Button:
         text: 'Button kv3'
-
+        size: '80dp', '40dp'
+        size_hint: None, None # el tamaño es controlado desde las propiedades y no desde el Layout. No responsive
+    Label:
+        text: 'Button kv4'
+        
 
 
 <MainWidget>:
@@ -18,7 +25,7 @@ BoxLayoutExample:
         pos: '200dp', '200dp'
     Button:
         text: 'Prueba2'
-        size: '100dp', '80dp'
+        size: '100dp', '80dp' # fija un tamaño al boton
         pos: '100dp', '200dp'
         color: 0, 0, 1, 1
     Label:
