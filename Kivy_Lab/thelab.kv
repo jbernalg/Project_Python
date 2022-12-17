@@ -1,23 +1,17 @@
+# llamado del diseño a ejecutar
 BoxLayoutExample:
 
+# diseño de caja
 <BoxLayoutExample>:
     orientation: 'vertical'
     Button:
-        text: 'Button kv'
-        # size: '40dp', '40dp'
-        size_hint: 1, .5 # fijar tamaño al boton en % respecto a los demas widgets. Responsive
+        text: 'A'
     Button:
-        text: 'Button kv2'
-        size_hint: 1, 2
-    Button:
-        text: 'Button kv3'
-        size: '80dp', '40dp'
-        size_hint: None, None # el tamaño es controlado desde las propiedades y no desde el Layout. No responsive
+        text: 'B'
     Label:
-        text: 'Button kv4'
-        
+        text: 'C'
 
-
+# diseño principal
 <MainWidget>:
     Button:
         text: 'Prueba'
