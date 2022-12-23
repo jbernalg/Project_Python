@@ -3,7 +3,12 @@ from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.gridlayout import GridLayout
 
+
+# diseño de cuadricula
+# class GridLayoutExample(GridLayout):
+#     pass
 
 # diseño de anclado
 class AnchorLayoutExample(AnchorLayout):
