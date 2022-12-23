@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
+from kivy.metrics import dp
 
 
 # diseño de pila
@@ -14,9 +15,12 @@ class StackLayoutExample(StackLayout):
         super().__init__(**kwargs)
         
         for i in range(0, 10):
+            #diferentes tamaños para los botones
+            size = dp(100) + i*10
             #crear boton
             b = Button(text=str(i+1),
-                       size_hint=(.2, .2))
+                       size_hint=(None, None),
+                       size=(size, size))
             #añadir boton
             self.add_widget(b)
 
