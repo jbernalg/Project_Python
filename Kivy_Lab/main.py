@@ -13,10 +13,13 @@ class StackLayoutExample(StackLayout):
     # constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        # cambiar de orientacion
+        #self.orientation = 'lr-bt'
         
         for i in range(0, 10):
             #diferentes tamaños para los botones
-            size = dp(100) + i*10
+            #size = dp(100) + i*10
+            size = dp(100)
             #crear boton
             b = Button(text=str(i+1),
                        size_hint=(None, None),
