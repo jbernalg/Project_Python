@@ -3,7 +3,7 @@ BoxLayoutExample:
 
 # diseño de caja
 <BoxLayoutExample>:
-    # orientation: 'vertical'
+    orientation: 'horizontal'
     Button:
         text: 'A'
         size_hint: .5, .5
@@ -14,8 +14,19 @@ BoxLayoutExample:
         # x, center_x, right
         # y, center_y, top
         pos_hint: {'center_y': .5}
-    Button:
-        text: 'B'
+    
+    BoxLayout:
+        orientation: 'vertical'   
+        spacing: '5dp' 
+        Button:
+            text: 'B1'
+        Button:
+            text: 'B2'
+        Button:
+            text: 'B3'
+        Button:
+            text: 'B4'
+
     Label:
         text: 'C'
 
