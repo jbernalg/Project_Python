@@ -1,5 +1,18 @@
 # llamado del diseño a ejecutar
-BoxLayoutExample:
+AnchorLayoutExample:
+
+# diseño de anclado
+<AnchorLayoutExample>:
+    # valores que puede tomar: right, left, center
+    anchor_x: 
+    # valores que puede tomar: bottom, top, center
+    anchor_y: 'top'
+    BoxLayout:
+        size_hint: .2, .2  # 20% tanto en el alto como en el ancho del boton
+        Button:
+            text: 'A'
+        Button:
+            text: 'B'
 
 # diseño de caja
 <BoxLayoutExample>:

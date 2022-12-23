@@ -2,7 +2,12 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.anchorlayout import AnchorLayout
 
+
+# diseño de anclado
+class AnchorLayoutExample(AnchorLayout):
+    pass
 
 # diseño de caja para la app
 class BoxLayoutExample(BoxLayout):
