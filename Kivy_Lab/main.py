@@ -4,7 +4,21 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.stacklayout import StackLayout
 
+
+# diseño de pila
+class StackLayoutExample(StackLayout):
+    # constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        
+        for i in range(0, 10):
+            #crear boton
+            b = Button(text=str(i+1),
+                       size_hint=(.2, .2))
+            #añadir boton
+            self.add_widget(b)
 
 # diseño de cuadricula
 # class GridLayoutExample(GridLayout):
