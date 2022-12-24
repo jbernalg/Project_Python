@@ -3,7 +3,10 @@ from pytube import YouTube
 from tkinter import *
 from tkinter import filedialog
 import tkinter
-
+from moviepy.editor import VideoFileClip
+from moviepy.editor import AudioFileClip
+import os
+import sys
 
 # Verifica si el link es valido
 def verify_link(string, link_field):
@@ -19,7 +22,7 @@ def verify_link(string, link_field):
 
 
 # descarga video
-def download_file(link_field, path_field, screen):
+def download_file(link_field, path_field, screen, list_resol):
     #get user path
     get_link = link_field.get()
     
@@ -36,5 +39,25 @@ def download_file(link_field, path_field, screen):
     vid_clip = VideoFileClip(mp4_video)
     vid_clip.close()
     
+    screen.title('Descarga Completada! Descargue otro Archivo...')
+    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
+
+
+# Descarga audio
+def download_audio(link_field, path_field, screen):
+    #get user path
+    get_link = link_field.get()
+
+    #get selected path
+    user_path = path_field.get()
+    screen.title('Descargando... Espere un Momento')
+    
+    #Download Audio
+    mp4_audio = YouTube(get_link).streams.get_audio_only().download(user_path)
+    mp3_audio = AudioFileClip(mp4_audio)
+    mp3_audio.write_audiofile(mp3_audio.filename.replace('.mp4', '.mp3'))
+
+    os.remove(mp3_audio.filename)
+
     screen.title('Descarga Completada! Descargue otro Archivo...')
     link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
