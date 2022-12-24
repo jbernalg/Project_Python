@@ -190,7 +190,7 @@ canvas.create_window(242, 330,window=path_label)   # Etiqueta de la ruta
 canvas.create_window(215, 360, window=path_field)  # Campo de la ruta
 canvas.create_window(390, 360,window=select_btn)   # Boton Seleccionar Ruta
 canvas.create_window(160, 420, window=download_btn)# Boton dascarga Video
-canvas.create_window(340, 420, window=download_mp3)# Boton descarga Auido
+canvas.create_window(340, 420, window=download_mp3)# Boton descarga Audio
 
 
 
