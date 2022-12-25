@@ -1,5 +1,17 @@
 # llamado del diseño a ejecutar
-StackLayoutExample:
+ScrollViewExample:
+
+
+# diseño de desplazamiento
+<ScrollViewExample@ScrollView>:
+    
+    # agregamos el diseño de pila anterior
+    StackLayoutExample:
+        # agregamos el tamaño del diseño de pila
+        size_hint: 1, None  # agregamos el tamaño del diseño de pila
+        # permite que el diseño trabaje con la altura minima de los botones al cambiar el tamaño de la ventana
+        height: self.minimum_height  
+
 
 # diseño de pila
 <StackLayoutExample>:
@@ -94,6 +106,7 @@ StackLayoutExample:
 
     Label:
         text: 'C'
+
 
 # diseño principal
 <MainWidget>:

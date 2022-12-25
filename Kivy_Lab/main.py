@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 
 
@@ -16,7 +17,7 @@ class StackLayoutExample(StackLayout):
         # cambiar de orientacion
         #self.orientation = 'lr-bt'
         
-        for i in range(0, 10):
+        for i in range(0, 100):
             #diferentes tamaños para los botones
             #size = dp(100) + i*10
             size = dp(100)
