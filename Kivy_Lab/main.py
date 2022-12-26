@@ -7,13 +7,16 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
+from kivy.properties import StringProperty
 
 # definiendo la clase del boton click
 class WidgetsExample(GridLayout):
+    # creamos un objeto de tipo StringProperty con el texto de la etiqueta
+    my_text = StringProperty('Hola')
     # creamos una funcion para dar funcionalidad al boton
     def on_button_click(self):
         print('Boton Presionado')
-
+        self.my_text = 'Hiciste click'
 
 # diseño de pila
 class StackLayoutExample(StackLayout):
