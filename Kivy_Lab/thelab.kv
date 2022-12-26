@@ -1,11 +1,12 @@
 # llamado del diseño a ejecutar
 WidgetsExample:
 
-# diseño de widgets
-<WidgetsExample@GridLayout>:
+# diseño de widgets click boton
+<WidgetsExample>:
     cols:3
     Button:
         text: 'Click Aqui'
+        on_press: root.on_button_click()
     Label:
         text: 'Hello'
 

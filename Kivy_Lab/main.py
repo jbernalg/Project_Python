@@ -8,6 +8,12 @@ from kivy.uix.stacklayout import StackLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 
+# definiendo la clase del boton click
+class WidgetsExample(GridLayout):
+    # creamos una funcion para dar funcionalidad al boton
+    def on_button_click(self):
+        print('Boton Presionado')
+
 
 # diseño de pila
 class StackLayoutExample(StackLayout):
