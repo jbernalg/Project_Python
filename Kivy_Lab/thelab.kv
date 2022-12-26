@@ -6,6 +6,7 @@ WidgetsExample:
     cols:3
     ToggleButton:
         text: 'Boton Alternancia'
+        on_state: root.on_toggle_button_state(self)
     Button:
         text: 'Click Aqui'
         on_press: root.on_button_click()

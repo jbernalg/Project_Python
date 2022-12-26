@@ -21,6 +21,14 @@ class WidgetsExample(GridLayout):
         print('Boton presionado')
         self.count += 1
         self.my_text = str(self.count)
+
+    # funcion para cambiar de estado
+    def on_toggle_button_state(self, widget):
+        print('toggle state' + widget.state)
+        if widget.state == 'normal':
+            widget.text = 'OFF'
+        else:
+            widget.text = 'ON'
         
 
 # diseño de pila
