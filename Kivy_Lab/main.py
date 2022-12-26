@@ -15,7 +15,7 @@ class WidgetsExample(GridLayout):
     count = 1
     # creamos un objeto de tipo StringProperty con el texto de la etiqueta
     my_text = StringProperty('1')
-    
+
     # creamos una funcion para dar funcionalidad al boton
     def on_button_click(self):
         print('Boton presionado')
