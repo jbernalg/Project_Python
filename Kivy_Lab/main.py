@@ -11,12 +11,17 @@ from kivy.properties import StringProperty
 
 # definiendo la clase del boton click
 class WidgetsExample(GridLayout):
+    # creamos un contador
+    count = 1
     # creamos un objeto de tipo StringProperty con el texto de la etiqueta
-    my_text = StringProperty('Hola')
+    my_text = StringProperty('1')
+    
     # creamos una funcion para dar funcionalidad al boton
     def on_button_click(self):
-        print('Boton Presionado')
-        self.my_text = 'Hiciste click'
+        print('Boton presionado')
+        self.count += 1
+        self.my_text = str(self.count)
+        
 
 # diseño de pila
 class StackLayoutExample(StackLayout):
