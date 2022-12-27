@@ -19,6 +19,8 @@ class WidgetsExample(GridLayout):
     count_enabled = BooleanProperty(False)
     # variable de tipo StringProperty con el texto de la etiqueta slider
     slider_value_text = StringProperty('50')
+    # variable de tipo StringProperty con el texto de la etiqueta entrada
+    text_input_str = StringProperty('bienvenidos')
 
     # funcion para llevar contabilidad de click
     def on_button_click(self):
@@ -54,6 +56,11 @@ class WidgetsExample(GridLayout):
         print('Slider: '+ str(int(widget.value)))
         self.slider_value_text = str(int(widget.value))
     
+
+    # validar el texto de la etiqueta de entrada
+    def on_text_validate(self, widget):
+        self.text_input_str = widget.text
+
 
 # diseño de pila
 class StackLayoutExample(StackLayout):

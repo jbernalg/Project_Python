@@ -48,8 +48,10 @@ WidgetsExample:
         size_hint: None, 1
         width: '100dp'
         text: 'bienvenidos'
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
     Label:
-        text: my_text_input.text
+        text: 'Tu nombre es: ' + root.text_input_str
 
 
 # Diseño de pagina
