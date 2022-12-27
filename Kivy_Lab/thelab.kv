@@ -28,6 +28,11 @@ WidgetsExample:
         value: 50 # indica el valor de la posicion inicial del slider
         on_value: root.on_slider_value(self)
         orientation: 'vertical'
+    Label:
+        text: root.slider_value_text
+        font_name: 'fonts/Lcd.ttf'
+        font_size: '80dp' 
+        color: 1, .5, 1, 1
 
 # Diseño de pagina
 <PageLayoutExample@PageLayout>:

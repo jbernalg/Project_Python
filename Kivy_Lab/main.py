@@ -17,6 +17,8 @@ class WidgetsExample(GridLayout):
     my_text = StringProperty('1')
     # variable que almacena el estado del toggle button
     count_enabled = BooleanProperty(False)
+    # variable de tipo StringProperty con el texto de la etiqueta slider
+    slider_value_text = StringProperty('50')
 
     # funcion para llevar contabilidad de click
     def on_button_click(self):
@@ -49,7 +51,8 @@ class WidgetsExample(GridLayout):
 
     # funcion que permite mostrar en consola el valor del slider
     def on_slider_value(self, widget):
-        print('Slider: '+ str(widget.value))
+        print('Slider: '+ str(int(widget.value)))
+        self.slider_value_text = str(int(widget.value))
     
         
 
