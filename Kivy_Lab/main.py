@@ -7,7 +7,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty, BooleanProperty
 
 # clase con elementos del diseño
 class WidgetsExample(GridLayout):
@@ -16,7 +16,7 @@ class WidgetsExample(GridLayout):
     # creamos un objeto de tipo StringProperty con el texto de la etiqueta
     my_text = StringProperty('1')
     # variable que almacena el estado del toggle button
-    count_enabled = False
+    count_enabled = BooleanProperty(False)
 
     # funcion para llevar contabilidad de click
     def on_button_click(self):
