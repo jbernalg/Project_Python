@@ -1,11 +1,15 @@
 # llamado del diseño a ejecutar
 CanvasExample1:
 
+# declarar una variable local en kv
+#:set s dp(150)
 
 # diseño de canvas
 <CanvasExample1>:
     canvas:
         Rectangle:
+            pos: self.center_x - s/2, self.center_y - s/2  # posicionar en el centro
+            size: s, s # ancho, alto
 
 
 # diseño para agregar imagenes
