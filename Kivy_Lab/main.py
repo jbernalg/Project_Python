@@ -40,6 +40,11 @@ class WidgetsExample(GridLayout):
             widget.text = 'ON'
             # cambiar el estado de count_enable
             self.count_enabled = True
+
+        
+    def on_switch_active(self, widget):
+        # mostrar en consola el estado de switch
+        print('switch: ' + str(widget.active))
         
 
 # diseño de pila
