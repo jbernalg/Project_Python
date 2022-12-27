@@ -9,26 +9,37 @@ from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 from kivy.properties import StringProperty
 
-# definiendo la clase del boton click
+# clase con elementos del diseño
 class WidgetsExample(GridLayout):
     # creamos un contador
     count = 1
     # creamos un objeto de tipo StringProperty con el texto de la etiqueta
     my_text = StringProperty('1')
+    # variable que almacena el estado del toggle button
+    count_enabled = False
 
-    # creamos una funcion para dar funcionalidad al boton
+    # funcion para llevar contabilidad de click
     def on_button_click(self):
         print('Boton presionado')
-        self.count += 1
-        self.my_text = str(self.count)
+
+        if self.count_enabled:
+            self.count += 1
+            self.my_text = str(self.count)
 
     # funcion para cambiar de estado
     def on_toggle_button_state(self, widget):
-        print('toggle state' + widget.state)
+        # mostrar el estado en consola
+        print('toggle state: ' + widget.state)
+        
+        # cambiar el texto del boton al cambiar de estado
         if widget.state == 'normal':
             widget.text = 'OFF'
+            # cambiar el estado de count_enable
+            self.count_enabled = False
         else:
             widget.text = 'ON'
+            # cambiar el estado de count_enable
+            self.count_enabled = True
         
 
 # diseño de pila
