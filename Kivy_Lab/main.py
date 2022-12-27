@@ -121,6 +121,9 @@ class MainWidget(Widget):
 class TheLabApp(App):
     pass
 
+# clase canvas
+class CanvasExample1(Widget):
+    pass
 
 # linea para correr la app
 TheLabApp().run()
