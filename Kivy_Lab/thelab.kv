@@ -19,6 +19,7 @@ WidgetsExample:
         font_size: '80dp' 
         color: 1, .5, 1, 1
     Switch:
+
         id: my_switch
         on_active: root.on_switch_active(self)
         size_hint: None, 1  # mismo tamaño que el toggle button para mejor compatibilidad
@@ -42,6 +43,14 @@ WidgetsExample:
         ProgressBar:
             max: 100
             value: my_slider.value
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: '100dp'
+        text: 'bienvenidos'
+    Label:
+        text: my_text_input.text
+
 
 # Diseño de pagina
 <PageLayoutExample@PageLayout>:
