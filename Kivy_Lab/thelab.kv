@@ -25,6 +25,8 @@ WidgetsExample:
     Slider:
         min: 0
         max: 100
+        value: 50 # indica el valor de la posicion inicial del slider
+        on_value: root.on_slider_value(self)
         orientation: 'vertical'
 
 # Diseño de pagina
