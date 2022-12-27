@@ -54,7 +54,6 @@ class WidgetsExample(GridLayout):
         print('Slider: '+ str(int(widget.value)))
         self.slider_value_text = str(int(widget.value))
     
-        
 
 # diseño de pila
 class StackLayoutExample(StackLayout):
