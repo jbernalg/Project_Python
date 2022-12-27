@@ -23,13 +23,14 @@ WidgetsExample:
         size_hint: None, 1  # mismo tamaño que el toggle button para mejor compatibilidad
         width: '100dp'
     Slider:
+        id: my_slider
         min: 0
         max: 100
         value: 50 # indica el valor de la posicion inicial del slider
-        on_value: root.on_slider_value(self)
+        # on_value: root.on_slider_value(self)
         orientation: 'vertical'
     Label:
-        text: root.slider_value_text
+        text: str(int(my_slider.value))
         font_name: 'fonts/Lcd.ttf'
         font_size: '80dp' 
         color: 1, .5, 1, 1
