@@ -10,13 +10,13 @@ import os
 import sys
 
 # Verifica si el link es valido
-def verify_link(string, link_field):
+def verify_link(string, link_field,path_field, screen,list_resol):
     try:
         YouTube(link_field.get()).check_availability()
         if string == 'video':
-            download_file(link_field)
+            download_file(link_field,path_field, screen, list_resol)
         else:
-            download_audio(link_field)
+            download_audio(link_field, path_field, screen)
     except Exception:
         tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link Válido')
         link_field.delete(first=0, last=100)

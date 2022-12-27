@@ -8,9 +8,7 @@ from moviepy.editor import VideoFileClip
 from moviepy.editor import AudioFileClip
 from pytube import YouTube
 import tkinter.messagebox
-import webbrowser
-import os
-import sys
+import utils
 
 from moviepy.audio.fx.audio_fadein import audio_fadein
 from moviepy.audio.fx.audio_fadeout import audio_fadeout
@@ -51,86 +49,6 @@ from moviepy.video.fx.time_mirror import time_mirror
 from moviepy.video.fx.time_symmetrize import time_symmetrize
 
 
-# Funciones
-
-# Verifica si el link es valido
-def verify_link(string):
-    try:
-        YouTube(link_field.get()).check_availability()
-        if string == 'video':
-            download_file()
-        else:
-            download_audio()
-    except Exception:
-        tkinter.messagebox.showinfo('ERROR EN EL LINK', 'Ingrese un Link Válido')
-        link_field.delete(first=0, last=100)
-        
-
-# Redirecciona a la pagina Principal de Youtube
-def search_multi():
-    webbrowser.open('https://www.youtube.com')
-
-
-# Selecciona la ruta local donde guarda el archivo
-def select_path():
-    #permite seleccionar al usuario un directorio desde el explorador
-    path = filedialog.askdirectory() 
-    path_field.delete(0, 100)   #elimina la ruta anterior
-    path_field.insert(0,path)
-
-
-# descarga video
-def download_file():
-    #get user path
-    get_link = link_field.get()
-    
-    #get selected path
-    user_path =  path_field.get()
-    screen.title('Descargando... Espere un Momento')
-        
-    #Download Video
-    if list_resol.get() == 'Alta':
-        mp4_video = YouTube(get_link).streams.get_highest_resolution().download(user_path)    
-    else:
-        mp4_video = YouTube(get_link).streams.get_lowest_resolution().download(user_path) 
-        
-    vid_clip = VideoFileClip(mp4_video)
-    vid_clip.close()
-    
-    screen.title('Descarga Completada! Descargue otro Archivo...')
-    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
-
-
-# Descarga audio
-def download_audio():
-    #get user path
-    get_link = link_field.get()
-
-    #get selected path
-    user_path = path_field.get()
-    screen.title('Descargando... Espere un Momento')
-    
-    #Download Audio
-    mp4_audio = YouTube(get_link).streams.get_audio_only().download(user_path)
-    mp3_audio = AudioFileClip(mp4_audio)
-    mp3_audio.write_audiofile(mp3_audio.filename.replace('.mp4', '.mp3'))
-
-    os.remove(mp3_audio.filename)
-
-    screen.title('Descarga Completada! Descargue otro Archivo...')
-    link_field.delete(first=0, last=100) #limpia el contenido de la caja de texto
-
-
-# Rutas relativas para los archivos de imagen
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
 
 #-------------------------Main---------------------------------------------------
 
@@ -140,16 +58,16 @@ canvas = Canvas(screen, width=500, height=500)  # medidas del lienzo de la app
 canvas.pack()
 
 #logo
-path = resource_path('logo_youtube.png')
+path = utils.resource_path('logo_youtube.png')
 logo_img = PhotoImage(file=path)
-#redimensionar image
+#redimensionar imagen
 logo_img = logo_img.subsample(2, 2)
 #agregar la imagen al lienzo
 canvas.create_image(250, 80, image=logo_img)
 
 # Busqueda en youTube
 search_label = Label(screen, text='Buscar Multimedia en YouTube', font=('Arial Rounded MT Bold', 14))
-search_btn = Button(screen, text='Buscar', command=search_multi)
+search_btn = Button(screen, text='Buscar', command= lambda: utils.search_multi())
 
 # Enlace
 link_field = Entry(screen, width=40)
@@ -157,29 +75,41 @@ link_label = Label(screen, text='Ingresa enlace de Descarga', font=('Arial Round
 
 # Ruta donde guarda el video
 path_label = Label(screen, text='Seleccionar Ruta para Descargar', font=('Arial Rounded MT Bold', 14))
-select_btn = Button(screen, text='Seleccionar', command=select_path)
 path_field = Entry(screen, width=40)  #campo de ruta
+select_btn = Button(screen, text='Seleccionar', command=lambda: utils.select_path(path_field))
+
 
 # boton de descarga de video
 download_btn = Button(screen,
                 text='Descargar Video',
-                command=lambda: verify_link('video'), 
+                command=lambda: utils.verify_link(
+                            'video',
+                            link_field = link_field,
+                            path_field = path_field,
+                            screen = screen,
+                            list_resol = list_resol), 
                 font=('Arial Black',11), 
                 foreground= 'red')
 
 # boton de descarga de audio
 download_mp3 = Button(screen, 
                 text='Descargar Audio', 
-                command=lambda: verify_link('audio'), 
+                command=lambda: utils.verify_link(
+                            'audio', 
+                            link_field = link_field, 
+                            path_field = path_field, 
+                            screen = screen, 
+                            list_resol = list_resol), 
                 font=('Arial Black',11), 
                 foreground= 'blue')
+
 
 # Lista Resolucion video
 list_resol = Combobox(state='readonly' ,values=['Alta', 'Baja'], width=6)
 list_resol.set('Alta')
 resol_label = Label(screen, text='Resolución', font=('Arial', 10))
 
-#añadir widgets a la ventana
+#añadir elementos a la interfaz
 canvas.create_window(230, 170, window=search_label)# Etiqueta de busqueda
 canvas.create_window(400, 170, window=search_btn)  # Boton de busqueda
 canvas.create_window(220, 240, window=link_label)  # Etiqueta de enlace
