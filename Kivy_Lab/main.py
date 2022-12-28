@@ -33,6 +33,9 @@ class CanvasExample4(Widget):
         with self.canvas:
             Color(0, 1, 0)
             Line(points=(100, 100, 400, 500), width = 3)
+            Color(0, 0, 1)
+            Line(circle = (400, 200, 120), width = 2)
+            Line(rectangle = (700, 400, 150, 100), width = 5)
             
 
 
