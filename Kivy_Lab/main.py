@@ -8,6 +8,8 @@ from kivy.uix.stacklayout import StackLayout
 from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 from kivy.properties import StringProperty, BooleanProperty
+from kivy.graphics.vertex_instructions import Line
+from kivy.graphics.context_instructions import Color
 
 # clase canvas 1
 class CanvasExample1(Widget):
@@ -20,6 +22,18 @@ class CanvasExample2(Widget):
 # clase canvas 3
 class CanvasExample3(Widget):
     pass
+
+# clase elementos creado desde main
+class CanvasExample4(Widget):
+    # constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        # llamar al canvas
+        with self.canvas:
+            Color(0, 1, 0)
+            Line(points=(100, 100, 400, 500), width = 3)
+            
 
 
 # clase con elementos del diseño
