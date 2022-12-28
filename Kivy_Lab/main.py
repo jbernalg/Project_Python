@@ -9,12 +9,16 @@ from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 from kivy.properties import StringProperty, BooleanProperty
 
-# clase canvas
+# clase canvas 1
 class CanvasExample1(Widget):
     pass
 
-# clase canvas
+# clase canvas 2
 class CanvasExample2(Widget):
+    pass
+
+# clase canvas 3
+class CanvasExample3(Widget):
     pass
 
 

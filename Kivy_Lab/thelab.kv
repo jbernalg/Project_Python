@@ -1,5 +1,27 @@
 # llamado del diseño a ejecutar
-CanvasExample2:
+CanvasExample3:
+
+# diseño de canvas 3
+<CanvasExample3>:
+    canvas:
+        Line: # circulo
+            circle: (200, 200, 100) # center_x, center_y, radius
+            width: 2
+        Line: # Elipse
+            ellipse: (500, 300, 100, 200) # center_x, center_y, radius_x, radius_y
+            width: 4
+
+
+# diseño de canva 2
+<CanvasExample2>:
+    canvas:
+        Line: # horizontal
+            points:(0, self.height/2, self.width, self.height/2)
+            width: 2
+        Line: # vertical
+            points: (self.width/2, 0, self.width/2, self.height)
+            width: 2
+
 
 # declarar una variable local en kv
 #:set s dp(150)
@@ -18,15 +40,7 @@ CanvasExample2:
             width: 2
 
 
-# diseño de canva 2
-<CanvasExample2>:
-    canvas:
-        Line: # horizontal
-            points:(0, self.height/2, self.width, self.height/2)
-            width: 2
-        Line: # vertical
-            points: (self.width/2, 0, self.width/2, self.height)
-            width: 2
+
 
 
 
