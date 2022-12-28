@@ -29,39 +29,27 @@ class mylayout(Widget):
         else:
             self.ids.calc_input.text = f'{prior}{button}'
 
+    # funcion decimal
+    def dot(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+
+        if '.' in prior:
+            pass
+        else:
+            # añadir el punto decimal al final del texto
+            self.ids.calc_input.text = f'{prior}.'
+
+
+    # funcion mostrar signo matematico en la entrada
+    def math_sign(self, sign):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # asignar el signo mas en la entrada 
+        self.ids.calc_input.text = f'{prior}{sign}'
+
     
-    # funcion suma
-    def add(self):
-        # variable que contenga lo que haya en la entrada
-        prior = self.ids.calc_input.text
-        
-        # asignar el signo mas en la entrada 
-        self.ids.calc_input.text = f'{prior}+'
-
-    # funcion resta
-    def subtrac(self):
-        # variable que contenga lo que haya en la entrada
-        prior = self.ids.calc_input.text
-        
-        # asignar el signo mas en la entrada 
-        self.ids.calc_input.text = f'{prior}-'
-
-    # funcion multiplicacion
-    def multiply(self):
-        # variable que contenga lo que haya en la entrada
-        prior = self.ids.calc_input.text
-        
-        # asignar el signo mas en la entrada 
-        self.ids.calc_input.text = f'{prior}*'
-
-    # funcion division
-    def divide(self):
-        # variable que contenga lo que haya en la entrada
-        prior = self.ids.calc_input.text
-        
-        # asignar el signo mas en la entrada 
-        self.ids.calc_input.text = f'{prior}/'
-
     # funcion operacion
     def equals(self):
         # variable que contenga lo que haya en la entrada
@@ -69,16 +57,62 @@ class mylayout(Widget):
 
         # suma
         if '+' in prior:
-            #lista de numeros dividos por el signo suma
+            #lista de numeros dividos por el signo +
             num_list = prior.split('+')
             
-            # variable con el calculo
+            # variable con el resultado de la operacion
             answer = 0
 
             #sumar elementos de la lista con un ciclo for
             for number in num_list:
                 answer = answer + int(number)
 
+            # imprimir el resultado en la caja de texto
+            self.ids.calc_input.text = f'{answer}'
+
+        # multiplicacion
+        if '*' in prior:
+            #lista de numeros dividos por el signo *
+            num_list = prior.split('*')
+            
+            # variable con el resultado de la operacion
+            answer = 1
+
+            # multiplica los elementos de la lista con un ciclo for
+            for number in num_list:
+                answer = answer * int(number)
+
+            # imprimir el resultado en la caja de texto
+            self.ids.calc_input.text = f'{answer}'
+
+        # resta
+        if '-' in prior:
+            #lista de numeros dividos por el signo -
+            num_list = prior.split('-')
+            print(num_list)
+            
+            # variable con el resultado de la operacion
+            answer = int(num_list[0])
+
+            # restar elementos de la lista con un ciclo for
+            for i in range (len(num_list) - 1):
+                answer = answer - int(num_list[i + 1]) 
+            # imprimir el resultado en la caja de texto
+            self.ids.calc_input.text = f'{answer}'
+
+        # division
+        if '/' in prior:
+            #lista de numeros dividos por el signo /
+            num_list = prior.split('/')
+            print(num_list)
+            
+            # variable con el resultado de la operacion
+            answer = int(num_list[0])
+
+            # dividir elementos de la lista con un ciclo for
+            for i in range (len(num_list) - 1):
+                answer = answer / int(num_list[i + 1]) 
+            # imprimir el resultado en la caja de texto
             self.ids.calc_input.text = f'{answer}'
 
     

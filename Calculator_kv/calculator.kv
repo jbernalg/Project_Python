@@ -29,18 +29,19 @@ mylayout:
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
-                text: 'CE'
+                text: 'C'
+                on_press: root.clear()
             Button:
                 id: clear
                 size_hint: (.2, .2)
                 font_size: 30
-                text: 'C'
-                on_press: root.clear()
+                text: u'\u00AB'  # doble flecha unicode
+                
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '/'
-                on_press: root.divide()
+                on_press: root.math_sign('/')
 
             # botones de segunda fila
             Button:
@@ -65,7 +66,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: 'x'
-                on_press: root.multiply()
+                on_press: root.math_sign('*')
 
             # botones de tercera fila
             Button:
@@ -90,7 +91,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '-'
-                on_press: root.subtrac()
+                on_press: root.math_sign('-')
 
             # botones de cuarta fila
             Button:
@@ -115,7 +116,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '+'
-                on_press: root.add()
+                on_press: root.math_sign('+')
 
             # botones de quinta fila
             Button:
@@ -134,6 +135,7 @@ mylayout:
                 font_size: 30
                 text: '.'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.dot()
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
