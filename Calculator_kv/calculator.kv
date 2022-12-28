@@ -19,6 +19,7 @@ mylayout:
         GridLayout:
             cols: 4
             rows: 5
+            spacing: '1dp'
 
             # botones de primera fila
             Button:
@@ -30,9 +31,11 @@ mylayout:
                 font_size: 30
                 text: 'CE'
             Button:
+                id: clear
                 size_hint: (.2, .2)
                 font_size: 30
                 text: 'C'
+                on_press: root.clear()
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
@@ -44,16 +47,19 @@ mylayout:
                 font_size: 30
                 text: '7'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(7)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '8'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(8)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '9'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(9)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
@@ -65,16 +71,19 @@ mylayout:
                 font_size: 30
                 text: '4'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(4)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '5'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(5)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '6'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(6)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
@@ -86,16 +95,19 @@ mylayout:
                 font_size: 30
                 text: '1'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(1)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '2'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(2)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '3'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(3)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
@@ -106,16 +118,20 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '+/-'
+                background_color: (157/255, 157/255, 157/255, 1)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '0'
                 background_color: (157/255, 157/255, 157/255, 1)
+                on_press: root.button_press(0)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '.'
+                background_color: (157/255, 157/255, 157/255, 1)
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '='
+                background_color: (249/255, 240/255, 31/255, 1)
