@@ -1,0 +1,111 @@
+# llamado del diseño a ejecutar
+mylayout:
+
+<mylayout>:
+    # diseño de caja
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height # ancho y alto definido por la ventana
+        
+        # entrada de texto
+        TextInput:
+            id: calc_input
+            text: '0'
+            halign: 'right' # alineacion del texto a la derecha 
+            font_size: 62 # tamaño de la fuente
+            size_hint: (1, .15)
+
+        # diseño de cuadricula
+        GridLayout:
+            cols: 4
+            rows: 5
+
+            # botones de primera fila
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+
+            # botones de segunda fila
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+
+            # botones de tercera fila
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+
+            # botones de cuarta fila
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+
+            # botones de quinta fila
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
+            Button:
+                size_hint: (.2, .2)
+                font_size: 30
+                text: '%'
