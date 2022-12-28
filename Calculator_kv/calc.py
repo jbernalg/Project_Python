@@ -29,6 +29,19 @@ class mylayout(Widget):
         else:
             self.ids.calc_input.text = f'{prior}{button}'
 
+
+    # funcion para remover el ultimo caracter de la entrada
+    def remove(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # eliminar ultimo caracter
+        prior = prior[:-1]
+
+        # mostrar en la caja de texto el cambio
+        self.ids.calc_input.text = prior
+
+
     # funcion decimal
     def dot(self):
         # variable que contenga lo que haya en la entrada
