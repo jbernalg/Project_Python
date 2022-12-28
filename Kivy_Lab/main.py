@@ -10,6 +10,8 @@ from kivy.metrics import dp
 from kivy.properties import StringProperty, BooleanProperty
 from kivy.graphics.vertex_instructions import Line
 from kivy.graphics.context_instructions import Color
+from kivy.graphics.vertex_instructions import Rectangle
+
 
 # clase canvas 1
 class CanvasExample1(Widget):
@@ -32,10 +34,11 @@ class CanvasExample4(Widget):
         # llamar al canvas
         with self.canvas:
             Color(0, 1, 0)
-            Line(points=(100, 100, 400, 500), width = 3)
+            Line(points=(100, 100, 400, 500), width = 3) # linea
             Color(0, 0, 1)
-            Line(circle = (400, 200, 120), width = 2)
-            Line(rectangle = (700, 400, 150, 100), width = 5)
+            Line(circle = (400, 200, 120), width = 2) # circulo de lineas
+            Line(rectangle = (700, 400, 150, 100), width = 5) # rectangulo de lineas
+            Rectangle(pos=(700, 200), size=(150, 100)) # rectangulo relleno
             
 
 
