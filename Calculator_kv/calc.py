@@ -26,6 +26,44 @@ class mylayout(Widget):
         if prior == '0':
             self.ids.calc_input.text = ''
             self.ids.calc_input.text = f'{button}'
+        else:
+            self.ids.calc_input.text = f'{prior}{button}'
+
+    
+    # funcion suma
+    def add(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # asignar el signo mas en la entrada 
+        self.ids.calc_input.text = f'{prior}+'
+
+    # funcion resta
+    def subtrac(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # asignar el signo mas en la entrada 
+        self.ids.calc_input.text = f'{prior}-'
+
+    # funcion multiplicacion
+    def multiply(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # asignar el signo mas en la entrada 
+        self.ids.calc_input.text = f'{prior}x'
+
+    # funcion division
+    def divide(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+        
+        # asignar el signo mas en la entrada 
+        self.ids.calc_input.text = f'{prior}/'
+
+    
+
 
 if __name__ == '__main__':
     calculatorApp().run()

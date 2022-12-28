@@ -40,6 +40,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '/'
+                on_press: root.divide()
 
             # botones de segunda fila
             Button:
@@ -63,7 +64,8 @@ mylayout:
             Button:
                 size_hint: (.2, .2)
                 font_size: 30
-                text: 'X'
+                text: 'x'
+                on_press: root.multiply()
 
             # botones de tercera fila
             Button:
@@ -88,6 +90,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '-'
+                on_press: root.subtrac()
 
             # botones de cuarta fila
             Button:
@@ -112,6 +115,7 @@ mylayout:
                 size_hint: (.2, .2)
                 font_size: 30
                 text: '+'
+                on_press: root.add()
 
             # botones de quinta fila
             Button:
