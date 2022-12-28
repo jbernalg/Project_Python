@@ -52,7 +52,7 @@ class mylayout(Widget):
         prior = self.ids.calc_input.text
         
         # asignar el signo mas en la entrada 
-        self.ids.calc_input.text = f'{prior}x'
+        self.ids.calc_input.text = f'{prior}*'
 
     # funcion division
     def divide(self):
@@ -61,6 +61,25 @@ class mylayout(Widget):
         
         # asignar el signo mas en la entrada 
         self.ids.calc_input.text = f'{prior}/'
+
+    # funcion operacion
+    def equals(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+
+        # suma
+        if '+' in prior:
+            #lista de numeros dividos por el signo suma
+            num_list = prior.split('+')
+            
+            # variable con el calculo
+            answer = 0
+
+            #sumar elementos de la lista con un ciclo for
+            for number in num_list:
+                answer = answer + int(number)
+
+            self.ids.calc_input.text = f'{answer}'
 
     
 
