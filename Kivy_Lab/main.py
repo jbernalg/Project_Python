@@ -9,6 +9,15 @@ from kivy.uix.scrollview import ScrollView
 from kivy.metrics import dp
 from kivy.properties import StringProperty, BooleanProperty
 
+# clase canvas
+class CanvasExample1(Widget):
+    pass
+
+# clase canvas
+class CanvasExample2(Widget):
+    pass
+
+
 # clase con elementos del diseño
 class WidgetsExample(GridLayout):
     # creamos un contador
@@ -121,9 +130,7 @@ class MainWidget(Widget):
 class TheLabApp(App):
     pass
 
-# clase canvas
-class CanvasExample1(Widget):
-    pass
+
 
 # linea para correr la app
 TheLabApp().run()
