@@ -29,6 +29,17 @@ class mylayout(Widget):
         else:
             self.ids.calc_input.text = f'{prior}{button}'
 
+    # funcion para volver la entrada negativa o psitiva
+    def pos_neg(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+
+        # verificar si esta el signo negativo
+        if '-' in prior:
+            self.ids.calc_input.text = f'{prior.replace("-", "")}'
+        else:
+            self.ids.calc_input.text = f'-{prior}'
+
 
     # funcion para remover el ultimo caracter de la entrada
     def remove(self):
@@ -74,11 +85,11 @@ class mylayout(Widget):
             num_list = prior.split('+')
             
             # variable con el resultado de la operacion
-            answer = 0
+            answer = 0.0
 
             #sumar elementos de la lista con un ciclo for
             for number in num_list:
-                answer = answer + int(number)
+                answer = answer + float(number)
 
             # imprimir el resultado en la caja de texto
             self.ids.calc_input.text = f'{answer}'
@@ -89,11 +100,11 @@ class mylayout(Widget):
             num_list = prior.split('*')
             
             # variable con el resultado de la operacion
-            answer = 1
+            answer = 1.0
 
             # multiplica los elementos de la lista con un ciclo for
             for number in num_list:
-                answer = answer * int(number)
+                answer = answer * float(number)
 
             # imprimir el resultado en la caja de texto
             self.ids.calc_input.text = f'{answer}'
@@ -105,11 +116,11 @@ class mylayout(Widget):
             print(num_list)
             
             # variable con el resultado de la operacion
-            answer = int(num_list[0])
+            answer = float(num_list[0])
 
             # restar elementos de la lista con un ciclo for
             for i in range (len(num_list) - 1):
-                answer = answer - int(num_list[i + 1]) 
+                answer = answer - float(num_list[i + 1]) 
             # imprimir el resultado en la caja de texto
             self.ids.calc_input.text = f'{answer}'
 
