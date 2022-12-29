@@ -2,9 +2,12 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.core.window import Window # configura el tamaño de la app
+import kivy
+
+kivy.require('1.9.0')
 
 # configurar tamaño de la app
-Window.size = (400, 600)
+#Window.size = (400, 600)
 
 # clase de la app
 class calculatorApp(App):
@@ -75,7 +78,6 @@ class mylayout(Widget):
         else:
             # añadir el punto decimal al final del texto
             self.ids.calc_input.text = f'{prior}.'
-
 
     # funcion mostrar signo matematico en la entrada
     def math_sign(self, sign):
