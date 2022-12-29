@@ -17,6 +17,7 @@ class mylayout(Widget):
     def clear(self):
         self.ids.calc_input.text = '0'
 
+
     # funcion presionar boton
     def button_press(self, button):
         # variable que contenga lo que haya en la entrada
@@ -29,7 +30,8 @@ class mylayout(Widget):
         else:
             self.ids.calc_input.text = f'{prior}{button}'
 
-    # funcion para volver la entrada negativa o psitiva
+
+    # funcion para volver la entrada negativa o positiva
     def pos_neg(self):
         # variable que contenga lo que haya en la entrada
         prior = self.ids.calc_input.text
@@ -58,7 +60,13 @@ class mylayout(Widget):
         # variable que contenga lo que haya en la entrada
         prior = self.ids.calc_input.text
 
-        if '.' in prior:
+        # dividimos el contenido de la caja de texto por el signo +
+        num_list = prior.split('+')
+
+        if '+' in prior and '.' not in num_list[-1]:
+            # añadir el punto decimal al final del texto
+            self.ids.calc_input.text = f'{prior}.'
+        elif '.' in prior:
             pass
         else:
             # añadir el punto decimal al final del texto
