@@ -102,5 +102,22 @@ class mylayout(Widget):
             # mostrar error en pantalla
             self.ids.calc_input.text = 'Error'
 
+
+    # funcion porcentaje
+    def pct(self):
+        # variable que contenga lo que haya en la entrada
+        prior = self.ids.calc_input.text
+
+        # Evalua la operacion matematica de la entrada
+        answer = eval(prior)
+
+        # divide el resultado por 100
+        answer = answer/100
+
+        # devuelve el resultado en pantalla
+        self.ids.calc_input.text = str(answer)
+
+
+
 if __name__ == '__main__':
     calculatorApp().run()
