@@ -23,6 +23,10 @@ class mylayout(Widget):
         # variable que contenga lo que haya en la entrada
         prior = self.ids.calc_input.text
 
+        # verificar si la entrada contiene Error
+        if 'Error' in prior:
+            prior = ''
+
         # determinar si el 0 esta en la entrada
         if prior == '0':
             self.ids.calc_input.text = ''
@@ -87,74 +91,16 @@ class mylayout(Widget):
         # variable que contenga lo que haya en la entrada
         prior = self.ids.calc_input.text
 
-        # Evalua la operacion matematica de la entrada
-        answer = eval(prior)
+        # manejo de errores en las operaciones
+        try:         
+            # Evalua la operacion matematica de la entrada
+            answer = eval(prior)
 
-        # devuelve el resultado a la caja de texto
-        self.ids.calc_input.text = str(answer)
-
-        # suma
-        # if '+' in prior:
-        #     #lista de numeros dividos por el signo +
-        #     num_list = prior.split('+')
-            
-        #     # variable con el resultado de la operacion
-        #     answer = 0.0
-
-        #     #sumar elementos de la lista con un ciclo for
-        #     for number in num_list:
-        #         answer = answer + float(number)
-
-        #     # imprimir el resultado en la caja de texto
-        #     self.ids.calc_input.text = f'{answer}'
-
-        # # multiplicacion
-        # if '*' in prior:
-        #     #lista de numeros dividos por el signo *
-        #     num_list = prior.split('*')
-            
-        #     # variable con el resultado de la operacion
-        #     answer = 1.0
-
-        #     # multiplica los elementos de la lista con un ciclo for
-        #     for number in num_list:
-        #         answer = answer * float(number)
-
-        #     # imprimir el resultado en la caja de texto
-        #     self.ids.calc_input.text = f'{answer}'
-
-        # # resta
-        # if '-' in prior:
-        #     #lista de numeros dividos por el signo -
-        #     num_list = prior.split('-')
-        #     print(num_list)
-            
-        #     # variable con el resultado de la operacion
-        #     answer = float(num_list[0])
-
-        #     # restar elementos de la lista con un ciclo for
-        #     for i in range (len(num_list) - 1):
-        #         answer = answer - float(num_list[i + 1]) 
-        #     # imprimir el resultado en la caja de texto
-        #     self.ids.calc_input.text = f'{answer}'
-
-        # # division
-        # if '/' in prior:
-        #     #lista de numeros dividos por el signo /
-        #     num_list = prior.split('/')
-        #     print(num_list)
-            
-        #     # variable con el resultado de la operacion
-        #     answer = int(num_list[0])
-
-        #     # dividir elementos de la lista con un ciclo for
-        #     for i in range (len(num_list) - 1):
-        #         answer = answer / int(num_list[i + 1]) 
-        #     # imprimir el resultado en la caja de texto
-        #     self.ids.calc_input.text = f'{answer}'
-
-    
-
+            # devuelve el resultado a la caja de texto
+            self.ids.calc_input.text = str(answer)
+        except:
+            # mostrar error en pantalla
+            self.ids.calc_input.text = 'Error'
 
 if __name__ == '__main__':
     calculatorApp().run()
