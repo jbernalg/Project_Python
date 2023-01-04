@@ -29,7 +29,11 @@ class SayHello(App):
         self.window.add_widget(self.greeting)
 
         # añadir widget entrada de texto 
-        self.user = TextInput(multiline=False)
+        self.user = TextInput(
+            multiline=False,
+            padding_y= (20, 20),
+            size_hint = (1, .5)
+            )
         self.window.add_widget(self.user)
 
         # añadir widget boton
