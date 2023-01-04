@@ -37,7 +37,13 @@ class SayHello(App):
         self.window.add_widget(self.user)
 
         # añadir widget boton
-        self.boton = Button(text='SALUDAR')
+        self.boton = Button(
+            text='SALUDAR',
+            size_hint = (1, .5),
+            bold = True,
+            background_color = '#00FFCE',
+            background_normal = ''
+            )
         self.boton.bind(on_press=self.callback)
         self.window.add_widget(self.boton)
 
