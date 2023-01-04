@@ -12,6 +12,10 @@ class SayHello(App):
         self.window = GridLayout()
         # numero de columnas
         self.window.cols = 1
+        # margenes
+        self.window.size_hint = (0.6, 0.7)
+        # posicion de la ventana
+        self.window.pos_hint = {'center_x':0.5, 'center_y':0.5}
 
         # añadir  image widgets
         self.window.add_widget(Image(source='logo.png'))
