@@ -21,7 +21,11 @@ class SayHello(App):
         self.window.add_widget(Image(source='logo.png'))
         
         # añadir label widget
-        self.greeting = Label(text='Cual es tu nombre?')
+        self.greeting = Label(
+            text='Cual es tu nombre?',
+            font_size = 18,
+            color= '#00FFCE'
+            )
         self.window.add_widget(self.greeting)
 
         # añadir widget entrada de texto 
