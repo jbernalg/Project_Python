@@ -38,8 +38,17 @@ class CanvasExample4(Widget):
             Color(0, 0, 1)
             Line(circle = (400, 200, 120), width = 2) # circulo de lineas
             Line(rectangle = (700, 400, 150, 100), width = 5) # rectangulo de lineas
-            Rectangle(pos=(700, 200), size=(150, 100)) # rectangulo relleno
+            # volvemos el objeto Rectangle una variable para ser utilizada de manera local
+            self.rect = Rectangle(pos=(700, 200), size=(150, 100)) # rectangulo relleno
             
+    def on_button_a_click(self):
+        # almacena la posicion en dos variables
+        x, y = self.rect.pos
+        # aumentamos la coordenadas x en 10dp al presionar el boton
+        x += dp(10)
+        # asiganmos el valos a una nueva tupla
+        self.rect.pos = (x, y)
+
 
 
 # clase con elementos del diseño
