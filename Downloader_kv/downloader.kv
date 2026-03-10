@@ -1,0 +1,107 @@
+layoutapp:
+
+<layoutapp>:
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height # ancho y alto definido por la ventana
+        
+
+        Label:
+            text: 'Descarga Sin Anuncios'
+            size_hint: .8, .2 
+            #width: '100dp'     # ancho
+            height: '80dp'     # altura
+            font_size: '25dp'
+            pos_hint: {'center_x': .5}
+        
+        Label:
+            text: 'Ingresa el Link'
+            size_hint: 1, None
+            #width: '100dp'     # ancho
+            height: '40dp'     # altura
+            font_size: 20
+            pos_hint: {'center_x': .5}
+
+        # entrada del link
+        TextInput:
+            id: text_link
+            halign: 'left' # alineacion del texto a la derecha 
+            size_hint: .8,  None
+            height: '30dp'
+            font_size: 14
+            pos_hint: {'center_x': .5}
+            multiline: False
+            padding_y: 1, 2
+            
+        # boton informacion
+        Button:
+            text: 'Info'
+            size_hint: .3, None
+            height: '50dp'
+            font_size: 0.3*self.height
+            pos_hint: {'center_x': .5}
+            background_color: '#00FFCE'
+            # background_normal: ''
+            on_press: root.info_media()
+        
+        Label:
+            text: root.title_media
+            size_hint: 1, None
+            #width: '100dp'     # ancho
+            height: '20dp'     # altura
+            font_size: 0.7*self.height
+            pos_hint: {'left': 1}
+
+        Label:
+            text: root.duration_media
+            size_hint: 1, None
+            #width: '100dp'     # ancho
+            height: '20dp'     # altura
+            font_size: 0.7*self.height
+            pos_hint: {'left': 1}
+
+        ProgressBar:
+            size_hint: .8,  None
+            height: '30dp'
+            pos_hint: {'center_x': .5}
+            max: 100
+            value: 
+
+        BoxLayout:
+            #size: root.width, root.height
+            Button:
+                id: audio
+                text: 'Descargar Audio'
+                size_hint: .5, None
+                height: '50dp'
+                font_size: 0.3*self.height
+                background_color: '#00FFCE'
+                # background_normal: ''
+                on_press: root.download_audio()
+            
+            Button:
+                id: video
+                text: 'Descargar Video'
+                size_hint: .5, None
+                height: '50dp'
+                font_size: 0.3*self.height
+                background_color: '#00FFCE'
+                # background_normal: ''
+                on_press: root.download_video()
+
+        Button: 
+            orientation: 'horizontal'
+            text: 'Ir a YouTube'
+            size_hint: 1, None
+            #width: '100dp'     # ancho
+            height: '40dp'     # altura
+            pos_hint: {'center_x': .5}
+            font_size: 20
+            on_press: root.go_youtube()
+
+        
+
+        
+
+        
+            
